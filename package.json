@@ -1,0 +1,33 @@
+{
+    "name": "stepr-theme",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "npx gulp & wp-scripts build src/js/scripts.js src/blocks/*.js",
+        "start": "npx gulp & wp-scripts start src/js/scripts.js src/blocks/*.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@wordpress/scripts": "^23.6.0",
+        "autoprefixer": "^10.4.0",
+        "cssnano": "^5.0.12",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^8.0.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-postcss": "^9.0.1",
+        "gulp-sass": "^5.0.0",
+        "gulp-sourcemaps": "^3.0.0",
+        "postcss": "^8.4.4",
+        "sass": "^1.44.0"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-pro": "^6.1.2",
+        "@popperjs/core": "^2.11.6",
+        "@wordpress/icons": "^9.7.0",
+        "animate.css": "^4.1.1",
+        "bootstrap": "^5.2.0"
+    }
+}

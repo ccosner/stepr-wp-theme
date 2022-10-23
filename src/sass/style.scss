@@ -1,0 +1,248 @@
+/*!
+    Theme Name: Stepr.io Theme
+    Version: 1.1
+*/
+
+@import "../../node_modules/bootstrap/scss/functions";
+
+$theme-1: #7d6cb2;
+$theme-2: #20c997;
+$white: #ffffff;
+
+$primary: $theme-1;
+$secondary: $theme-2;
+$font-family-sans-serif: "Inter", sans-serif;
+$font-family-serif: "Comfortaa", cursive;
+$headings-font-weight: 700;
+$h1-font-size: 48px;
+
+@import "../../node_modules/animate.css/animate";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+@mixin bg-gradient-ani() {
+    background: $body-color;
+    background: linear-gradient(
+        90deg,
+        rgba(170, 255, 255, 1) 0%,
+        rgba(255, 170, 255, 1) 33%,
+        rgba(255, 255, 170, 1) 66%,
+        rgba(170, 255, 255, 1) 100%
+    );
+    background-size: 300% auto;
+    animation: shine 2s linear infinite;
+    background-clip: unset;
+    text-fill-color: inherit;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: inherit;
+}
+@mixin text-gradient-ani() {
+    background: linear-gradient(
+        90deg,
+        rgba(170, 255, 255, 1) 0%,
+        rgba(255, 170, 255, 1) 33%,
+        rgba(255, 255, 170, 1) 66%,
+        rgba(170, 255, 255, 1) 100%
+    );
+    background-size: 300% auto;
+    animation: shine 2s linear infinite;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+@keyframes shine {
+    to {
+        background-position: -300% center;
+    }
+}
+@mixin linear-gradient-overlay($color) {
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba($color, 0.5);
+        background: linear-gradient(90deg, rgba($color, 1) 0%, rgba($color, 0.5) 100%);
+    }
+}
+html {
+    overflow-y: scroll;
+}
+html,
+body {
+    overflow: auto;
+}
+body {
+    background: $body-bg;
+    overflow-x: hidden;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1;
+    opacity: 1;
+}
+a {
+    font-weight: bold;
+}
+a,
+p {
+    font-size: $font-size-base;
+    @include media-breakpoint-down(md) {
+        font-size: $font-size-sm;
+    }
+}
+b,
+strong {
+    font-weight: bold;
+}
+a:hover,
+a:focus,
+a:active {
+    @include text-gradient-ani();
+}
+a.external svg {
+    vertical-align: text-top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: $spacer * 2;
+}
+blockquote {
+    font-style: italic;
+    margin-left: $spacer;
+    padding-left: $spacer;
+    border-left: $body-color 2px solid;
+}
+a.btn {
+    margin-bottom: $spacer;
+}
+.buttons {
+    display: flex;
+    flex-direction: column;
+    @include media-breakpoint-up(md) {
+        display: inline-flex;
+        flex-direction: row;
+    }
+    a.btn:not(:last-child) {
+        @include media-breakpoint-up(md) {
+            margin-right: $spacer;
+        }
+    }
+}
+a.btn-cta {
+    background: $theme-2;
+    border: 2px solid $theme-2;
+    color: $white;
+    transition: none;
+    font-weight: bold;
+    &:hover,
+    &:focus,
+    &:active {
+        @include bg-gradient-ani();
+    }
+}
+.dark-theme {
+    p,
+    h1,
+    h2,
+    h3,
+    a {
+        color: $white;
+    }
+}
+.site-header {
+    padding: $spacer 0;
+    background: $gray-900;
+}
+.logo img {
+    height: 22px;
+    width: auto;
+    @include media-breakpoint-up(md) {
+        height: 44px;
+    }
+}
+.aligncenter {
+    position: relative;
+    margin: 0 auto;
+}
+.container {
+    .row {
+        align-items: center;
+    }
+}
+.header {
+    padding: $spacer 0;
+    .wp-block-image {
+        margin: 0;
+    }
+}
+.home {
+    .header {
+        position: relative;
+        height: 64px;
+        margin-bottom: -64px;
+    }
+}
+
+.hero {
+    background-size: cover;
+    padding: ($spacer * 4) 0;
+    min-height: 80vh;
+    color: $white;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    .container {
+        max-width: 60em;
+        position: relative;
+    }
+    p {
+        margin: 1rem auto;
+        max-width: 50em;
+    }
+    .button-group {
+        display: flex;
+        justify-content: center;
+        & > a.btn:not(:last-child) {
+            margin-right: $spacer * 2;
+        }
+    }
+    // & > h1 {
+    //     max-width: 60em;
+    //     text-align: center;
+    // }
+    // & > p {
+    //     max-width: 50em;
+    //     text-align: center;
+    // }
+}
+
+.video-bg {
+    position: relative;
+    padding: ($spacer * 4) 0;
+    min-height: 80vh;
+    color: $white;
+    display: flex;
+    align-items: center;
+    @include linear-gradient-overlay($gray-900);
+    .container {
+        position: relative;
+    }
+    video {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+}
