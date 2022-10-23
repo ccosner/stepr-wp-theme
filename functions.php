@@ -46,10 +46,10 @@ class JSXBlock {
     }
 }
 
-new JSXBlock('hero', true);
-new JSXBlock('header', true);
-new JSXBlock('video-bg', true);
-new JSXBlock('custom-button');
+// new JSXBlock('hero', true);
+// new JSXBlock('header', true);
+// new JSXBlock('video-bg', true);
+// new JSXBlock('custom-button');
 
 // Block category
 function custom_block_categories($block_categories, $editor_context) {

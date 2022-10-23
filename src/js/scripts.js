@@ -1,4 +1,4 @@
-import "@popperjs/core";
+// import "@popperjs/core";
 import "bootstrap";
-import "@fortawesome/fontawesome-pro/js/solid";
-import "@fortawesome/fontawesome-pro/js/duotone";
+// import "@fortawesome/fontawesome-pro/js/solid";
+// import "@fortawesome/fontawesome-pro/js/duotone";

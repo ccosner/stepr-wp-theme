@@ -1,7 +1,18 @@
 @charset "UTF-8";
 /*!
-    Theme Name: Stepr.io Theme
+    Theme Name: Stepr.io WordPress Theme
+    Theme URI:
+    Author: Christopher Cosner
+    Author URI: https://christophercosner.com/
+    Description: A custom-made block theme
+    Tags:
     Version: 1.1
+    Requires at least: 5.9
+    Tested up to: 6.0
+    Requires PHP: 5.6
+    License: GNU General Public License v2 or later
+    License URI: https://www.gnu.org/licenses/gpl-2.0.html
+    Text Domain: stepr
 */
 /*!
 * animate.css - https://animate.style/

@@ -6,40 +6,42 @@ import { useEffect } from "@wordpress/element";
 
 registerBlockType("stepr/hero", {
     title: "Hero",
-    attributes: {
-        imageId: { type: "number" },
-        imageUrl: { type: "string" }
+    category: "custom-blocks",
+    supports: {
+        anchor: true
     },
-    edit: EditComponent,
-    save: SaveComponent
+    attributes: {
+        bgImageId: { type: "number" },
+        bgImageUrl: { type: "string" },
+        bgVideoId: { type: "number" },
+        bgVideoUrl: { type: "string" },
+        anchor: { type: "string" }
+    },
+    edit: Edit,
+    save: () => <InnerBlocks.Content />
 });
 
-function EditComponent(props) {
+function Edit(props) {
     const {
-        attributes: { imageId, imageUrl },
+        attributes: { bgImageId, bgImageUrl, bgVideoId, anchor },
         setAttributes,
-        className,
+        className
     } = props;
 
-    useEffect(
-        function () {
-            if (imageId) {
-                async function go() {
-                    const response = await apiFetch({
-                        path: `/wp/v2/media/${imageId}`,
-                        method: "GET"
-                    });
-                    setAttributes({ imageUrl: response.media_details.sizes.full.source_url });
-                }
-                go();
-            }
-        },
-        [imageId]
-    );
-
-    function onFileSelect(file) {
-        setAttributes({ imageId: file.id });
-    }
+    useEffect(() => {
+        if (!bgImageId) {
+            return;
+        } else {
+            const fetchData = async () => {
+                const response = await apiFetch({
+                    path: `/wp/v2/media/${bgImageId}`,
+                    method: "GET"
+                });
+                setAttributes({ bgImageUrl: response.media_details.sizes.hero.source_url });
+            };
+            fetchData().catch(console.error);
+        };
+    }, [bgImageId]);
 
     return (
         <>
@@ -47,26 +49,31 @@ function EditComponent(props) {
                 <PanelBody title="Background" initialOpen={ true }>
                     <PanelRow>
                         <MediaUploadCheck>
-                            <MediaUpload
-                                onSelect={ onFileSelect }
-                                value={ imageId }
-                                render={ ({ open }) => {
-                                    return <Button onClick={ open } variant="secondary">Choose Image</Button>;
-                                } }
-                            />
+                            <MediaUpload onSelect={ (image) => setAttributes({ bgImageId: image.id }) } value={ bgImageId } render={ ({ open }) => {
+                                return <Button onClick={ open } variant="primary">Choose background image</Button>;
+                            } } />
                         </MediaUploadCheck>
+                    </PanelRow>
+                    <PanelRow>
+                        <Button onClick={ () => setAttributes({ bgImageId: null, bgImageUrl: null }) } variant="secondary">Remove Image</Button>
+                    </PanelRow>
+                    <PanelRow>
+                        <MediaUploadCheck>
+                            <MediaUpload onSelect={ (video) => setAttributes({ bgVideoId: video.id, bgVideoUrl: video.url }) } value={ bgVideoId } allowedTypes={ ['video/mp4'] } render={ ({ open }) => {
+                                return <Button onClick={ open } variant="primary">Choose video</Button>;
+                            } } />
+                        </MediaUploadCheck>
+                    </PanelRow>
+                    <PanelRow>
+                        <Button onClick={ () => setAttributes({ bgVideoId: null, bgVideoUrl: null }) } variant="secondary">Remove video</Button>
                     </PanelRow>
                 </PanelBody>
             </InspectorControls>
-            <section className="hero editor" style={ { backgroundImage: `url('${imageUrl}')` } }>
-                <div className="container" >
+            <section className={ `hero ${className}` } style={ { backgroundImage: `url('${bgImageUrl}')` } } id={ anchor }>
+                <div className="grid-container">
                     <InnerBlocks />
                 </div>
             </section>
         </>
     );
-}
-
-function SaveComponent() {
-    return <InnerBlocks.Content />;
-}
+};
