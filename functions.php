@@ -4,7 +4,7 @@
 function stepr_styles_and_scripts() {
     wp_enqueue_style('style', get_stylesheet_uri(), array(), wp_get_theme()->get('Version'));
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Inter:wght@100;300;400;700&display=swap', false);
-    // wp_enqueue_script('scripts', get_theme_file_uri('build/scripts.js'), array(), '1.0', true);
+    wp_enqueue_script('scripts', get_theme_file_uri('build/scripts.js'), array(), '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'stepr_styles_and_scripts');
 
@@ -47,9 +47,11 @@ class JSXBlock {
 }
 
 new JSXBlock('hero', true);
-// new JSXBlock('header', true);
-// new JSXBlock('video-bg', true);
-// new JSXBlock('custom-button');
+new JSXBlock('video-section', true);
+new JSXBlock('button-group', true);
+new JSXBlock('button', true);
+new JSXBlock('header', true);
+new JSXBlock('footer', true);
 
 // Block category
 function custom_block_categories($block_categories, $editor_context) {
@@ -95,3 +97,6 @@ function fix_svg() {
           </style>';
 }
 add_action('admin_head', 'fix_svg');
+
+// Remove <p> and <br/> from Contact Form 7
+add_filter('wpcf7_autop_or_not', '__return_false');

@@ -151,9 +151,9 @@ module.exports = window["wp"]["element"];
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 !function() {
-/*!****************************!*\
-  !*** ./src/blocks/hero.js ***!
-  \****************************/
+/*!*************************************!*\
+  !*** ./src/blocks/video-section.js ***!
+  \*************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
@@ -173,8 +173,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_4__.registerBlockType)("stepr/hero", {
-  title: "Hero",
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_4__.registerBlockType)("stepr/video-section", {
+  title: "Video Section",
   category: "custom-blocks",
   supports: {
     anchor: true,
@@ -278,7 +278,7 @@ function Edit(props) {
     }),
     variant: "secondary"
   }, "Remove video")))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
-    className: `hero text-bg-dark ${className}`,
+    className: `video-section text-bg-dark ${className}`,
     style: {
       backgroundImage: `url('${bgImageUrl}')`
     },
@@ -291,4 +291,4 @@ function Edit(props) {
 }();
 /******/ })()
 ;
-//# sourceMappingURL=hero.js.map
+//# sourceMappingURL=video-section.js.map

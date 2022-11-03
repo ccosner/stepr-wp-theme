@@ -5,8 +5,8 @@ import { registerBlockType } from "@wordpress/blocks";
 import { useEffect } from "@wordpress/element";
 import { THEME_PATH } from "../../inc/theme";
 
-registerBlockType("stepr/hero", {
-    title: "Hero",
+registerBlockType("stepr/video-section", {
+    title: "Video Section",
     category: "custom-blocks",
     supports: {
         anchor: true,
@@ -72,7 +72,7 @@ function Edit(props) {
                     </PanelRow>
                 </PanelBody>
             </InspectorControls>
-            <section className={ `hero text-bg-dark ${className}` } style={ { backgroundImage: `url('${bgImageUrl}')` } } id={ anchor }>
+            <section className={ `video-section text-bg-dark ${className}` } style={ { backgroundImage: `url('${bgImageUrl}')` } } id={ anchor }>
                 <div className="container">
                     <InnerBlocks />
                 </div>

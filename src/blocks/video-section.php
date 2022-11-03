@@ -3,7 +3,7 @@ $bgImageUrl = ($attributes['bgImageUrl']) ?? '';
 $bgVideoUrl = ($attributes['bgVideoUrl']) ?? '';
 $anchor = ($attributes['anchor']) ?? '';
 
-$classes = array('hero', 'text-bg-dark');
+$classes = array('video-section', 'text-bg-dark');
 
 $wrapper_attributes = get_block_wrapper_attributes(
     [
@@ -13,18 +13,11 @@ $wrapper_attributes = get_block_wrapper_attributes(
 );
 ?>
 <section <?php echo $wrapper_attributes; ?> style="background-image:url(<?php echo esc_url($bgImageUrl); ?>)">
-    <?php /* if (function_exists('rank_math_the_breadcrumbs') && !is_front_page() && !is_404()) { ?>
-        <div class="breadcrumbs-wrapper">
-            <div class="container">
-                <?php rank_math_the_breadcrumbs(); ?>
-            </div>
-        </div>
-    <?php } */ ?>
     <div class="container">
         <?php echo $content; ?>
     </div>
     <?php if ($bgVideoUrl) : ?>
-        <video autoplay muted loop class="bg-video" id="heroBgVideo" poster="<?php echo esc_url($bgImageUrl); ?>">
+        <video autoplay muted loop class="bg-video" id="bgVideo" poster="<?php echo esc_url($bgImageUrl); ?>">
             <source src="<?php echo esc_url($bgVideoUrl); ?>" type="video/mp4">
         </video>
     <?php endif; ?>
