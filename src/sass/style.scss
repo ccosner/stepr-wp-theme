@@ -45,7 +45,7 @@ $input-btn-padding-x-lg: 1.4rem;
         width: 100%;
         background: rgba($color, 0.8);
         @include media-breakpoint-up(md) {
-            background: linear-gradient(90deg, rgba($color, 0.5) 0%, rgba($color, 0.6) 30%, rgba($color, 1) 100%);
+            background: linear-gradient(90deg, rgba($color, 1) 0%, rgba($color, 0.8) 50%, rgba($color, 0.4) 100%);
         }
     }
 }
@@ -193,16 +193,33 @@ section {
     margin-bottom: $spacer;
     li {
         @extend .list-group-item;
+        padding: 0;
+        margin-bottom: ($spacer * 0.5);
         border: none;
         background-color: transparent;
-        &:not(:last-child) {
-            border-bottom: $gray-200 1px solid;
-        }
+        // &:not(:last-child) {
+        //     border-bottom: $gray-200 1px solid;
+        // }
         &::before {
             content: "✓";
             color: $secondary;
             margin-right: 4px;
         }
+    }
+}
+.feature-text {
+    @extend .intro-text;
+    @extend .mb-1;
+    text-transform: uppercase;
+}
+.stats {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 0.75;
+    margin-top: $spacer * 2;
+    sub {
+        bottom: auto;
+        font-size: 1.75rem;
     }
 }
 form {
