@@ -45,7 +45,7 @@ $input-btn-padding-x-lg: 1.4rem;
         width: 100%;
         background: rgba($color, 0.8);
         @include media-breakpoint-up(md) {
-            background: linear-gradient(90deg, rgba($color, 1) 0%, rgba($color, 0.8) 50%, rgba($color, 0.4) 100%);
+            background: linear-gradient(90deg, rgba($color, 1) 0%, rgba($color, 0.7) 50%, rgba($color, 0.1) 100%);
         }
     }
 }
@@ -99,8 +99,16 @@ img.logo {
     padding: $spacer 0;
     position: relative;
     @extend .text-bg-dark;
-    display: flex;
-    align-items: center;
+    @include media-breakpoint-up(md) {
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            p {
+                margin: 0;
+            }
+        }
+    }
 }
 section {
     position: relative;
@@ -167,6 +175,8 @@ section {
 }
 .card {
     max-width: 24rem;
+    padding: $spacer ($spacer * 2);
+    margin: auto;
     h1,
     h2,
     h3,
@@ -191,6 +201,7 @@ section {
 }
 .list-group {
     margin-bottom: $spacer;
+    border: none !important;
     li {
         @extend .list-group-item;
         padding: 0;
@@ -213,14 +224,16 @@ section {
     text-transform: uppercase;
 }
 .stats {
-    font-size: 3.5rem;
+    font-size: 2rem;
     font-weight: 700;
-    line-height: 0.75;
+    line-height: 1;
     margin-top: $spacer * 2;
-    sub {
-        bottom: auto;
-        font-size: 1.75rem;
-    }
+}
+.num {
+    font-size: 3.5rem;
+    background: linear-gradient(90deg, lighten($theme-1, 20%), lighten($theme-2, 20%));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 form {
     @extend .card;
