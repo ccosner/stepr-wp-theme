@@ -19,7 +19,7 @@ function Edit() {
         <>
             <header className="site-header">
                 <div className="container">
-                    <img src={ `${THEME_PATH}/stepr-logo-v1.svg` } className="logo"></img>
+                    <img src={ `${THEME_PATH}/stepr-logo-v2.svg` } className="logo"></img>
                 </div>
             </header>
         </>

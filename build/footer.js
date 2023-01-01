@@ -154,7 +154,7 @@ function Edit() {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    src: `${_inc_theme__WEBPACK_IMPORTED_MODULE_2__.THEME_PATH}/stepr-logo-v1-white.svg`,
+    src: `${_inc_theme__WEBPACK_IMPORTED_MODULE_2__.THEME_PATH}/stepr-logo-v2-white.svg`,
     className: "logo"
   }))));
 }

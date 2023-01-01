@@ -43,7 +43,7 @@ $input-btn-padding-x-lg: 1.4rem;
         bottom: 0;
         height: 100%;
         width: 100%;
-        background: rgba($color, 0.8);
+        background: rgba($color, 0.9);
         @include media-breakpoint-up(md) {
             background: linear-gradient(90deg, rgba($color, 1) 0%, rgba($color, 0.7) 50%, rgba($color, 0.1) 100%);
         }
@@ -82,9 +82,12 @@ a.btn-outline-light {
     color: $white;
 }
 .button-group {
-    .btn {
-        margin: 0 $spacer $spacer 0;
-    }
+    @extend .d-grid;
+    @extend .gap-2;
+    @extend .d-sm-block;
+    // .btn {
+    //     margin: 0 $spacer $spacer 0;
+    // }
 }
 .intro-text {
     font-size: $font-size-lg;
@@ -110,11 +113,15 @@ img.logo {
         }
     }
 }
+$section-spacing: $spacer * 8;
 section {
     position: relative;
-    padding: ($spacer * 4) 0;
+    padding: ($spacer * 2) 0;
     display: flex;
     align-items: center;
+    @include media-breakpoint-up(md) {
+        padding: $section-spacing 0;
+    }
     & > * {
         position: relative;
         z-index: 2;
@@ -123,9 +130,6 @@ section {
         background: $gray-100;
         background: radial-gradient(circle, $gray-200 0%, $gray-100 100%);
     }
-    &.more-space {
-        padding: ($spacer * 6) 0;
-    }
     .row:not(:first-child) {
         margin-top: ($spacer * 6);
     }
@@ -133,9 +137,10 @@ section {
 .hero,
 .video-section {
     background-size: cover;
-    padding: ($spacer * 4) 0;
+    padding: ($spacer * 2) 0;
     @include media-breakpoint-up(md) {
         min-height: 80vh;
+        padding: $section-spacing 0;
     }
     @include linear-gradient-overlay($body-color);
     &.fullscreen {
@@ -155,9 +160,9 @@ section {
 }
 .wp-block-image {
     text-align: center;
-    margin-top: ($spacer * 4);
+    margin-bottom: ($spacer * 4);
     @include media-breakpoint-up(md) {
-        margin-top: 0;
+        margin-bottom: 0;
     }
     img {
         display: inline;
@@ -165,16 +170,21 @@ section {
 }
 .reposition-1 {
     position: relative;
-    margin-bottom: ($spacer * -4);
-    max-height: 50vh;
-    overflow: hidden;
-    @include media-breakpoint-up(md) {
-        margin-top: ($spacer * -8);
-        max-height: fit-content;
+    max-height: fit-content;
+    max-width: 70vw;
+    margin: 0 auto;
+    margin-bottom: $spacer * 2;
+    @include media-breakpoint-up(lg) {
+        margin-bottom: -$section-spacing;
     }
 }
+.vcenter {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 .card {
-    max-width: 24rem;
+    max-width: 28rem;
     padding: $spacer ($spacer * 2);
     margin: auto;
     h1,
@@ -199,28 +209,30 @@ section {
         font-size: 2.5rem;
     }
 }
+.t-shadow {
+    text-shadow: 0px 1px 4px rgba($body-color, 0.6);
+}
 .list-group {
     margin-bottom: $spacer;
+    padding-left: $spacer;
     border: none !important;
     li {
         @extend .list-group-item;
         padding: 0;
-        margin-bottom: ($spacer * 0.5);
+        margin-bottom: ($spacer);
         border: none;
         background-color: transparent;
-        // &:not(:last-child) {
-        //     border-bottom: $gray-200 1px solid;
-        // }
+        display: flex;
         &::before {
             content: "✓";
             color: $secondary;
-            margin-right: 4px;
+            margin-right: 6px;
         }
     }
 }
 .feature-text {
     @extend .intro-text;
-    @extend .mb-1;
+    margin-bottom: $spacer * 2;
     text-transform: uppercase;
 }
 .stats {
@@ -230,6 +242,8 @@ section {
     margin-top: $spacer * 2;
 }
 .num {
+    display: inline-block;
+    margin-bottom: 8px;
     font-size: 3.5rem;
     background: linear-gradient(90deg, lighten($theme-1, 20%), lighten($theme-2, 20%));
     background-clip: text;
