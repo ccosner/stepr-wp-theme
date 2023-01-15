@@ -100,3 +100,6 @@ add_action('admin_head', 'fix_svg');
 
 // Remove <p> and <br/> from Contact Form 7
 add_filter('wpcf7_autop_or_not', '__return_false');
+
+// Enable Customizer
+add_action('customize_register', '__return_true');
