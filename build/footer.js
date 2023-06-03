@@ -133,9 +133,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)("stepr/footer", {
-  title: "Footer",
-  category: "custom-blocks",
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)('stepr/footer', {
+  title: 'Footer',
+  category: 'custom-blocks',
   supports: {
     align: true
   },
@@ -154,11 +154,10 @@ function Edit() {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    src: `${_inc_theme__WEBPACK_IMPORTED_MODULE_2__.THEME_PATH}/stepr-logo-v2-white.svg`,
+    src: `${_inc_theme__WEBPACK_IMPORTED_MODULE_2__.THEME_PATH}/stepr-logo-white-v3.svg`,
     className: "logo"
   }))));
 }
-;
 }();
 /******/ })()
 ;

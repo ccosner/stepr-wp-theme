@@ -200,25 +200,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("stepr/button", {
-  title: "Button",
-  category: "custom-blocks",
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)('stepr/button', {
+  title: 'Button',
+  category: 'custom-blocks',
   supports: {
     anchor: true
   },
   attributes: {
     text: {
-      type: "string"
+      type: 'string'
     },
     linkObject: {
-      type: "object"
+      type: 'object'
     },
     buttonStyle: {
-      type: "string",
-      default: "btn-primary"
+      type: 'string',
+      default: 'btn-primary'
     },
     anchor: {
-      type: "string"
+      type: 'string'
     }
   },
   edit: Edit,
@@ -267,7 +267,7 @@ function Edit(props) {
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     allowedFormats: [],
     tagName: "a",
-    className: `btn btn-lg ${buttonStyle} ${className}`,
+    className: `btn ${buttonStyle} ${className}`,
     value: text,
     onChange: newText => setAttributes({
       text: newText
@@ -284,7 +284,6 @@ function Edit(props) {
     })
   })));
 }
-;
 }();
 /******/ })()
 ;

@@ -5,6 +5,7 @@ function stepr_styles_and_scripts() {
     wp_enqueue_style('style', get_stylesheet_uri(), array(), wp_get_theme()->get('Version'));
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Inter:wght@100;300;400;700&display=swap', false);
     wp_enqueue_script('scripts', get_theme_file_uri('build/scripts.js'), array(), '1.0', true);
+    wp_enqueue_script('font-awesome', 'https://kit.fontawesome.com/c42e2e5d2a.js', array(), null, false);
 }
 add_action('wp_enqueue_scripts', 'stepr_styles_and_scripts');
 
@@ -14,6 +15,10 @@ function stepr_features() {
     add_image_size('spotlight', 2560, 1080);
     add_theme_support('editor-styles');
     add_editor_style(array('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Inter:wght@100;300;400;700&display=swap', 'style.css'));
+    register_nav_menus(array(
+        'main-menu' => __('Main Menu')
+    ));
+    require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
 }
 add_action('after_setup_theme', 'stepr_features');
 
@@ -88,15 +93,15 @@ function cc_mime_types($mimes) {
 }
 add_filter('upload_mimes', 'cc_mime_types');
 
-function fix_svg() {
-    echo '<style type="text/css">
-          .attachment-266x266, .thumbnail img {
-               width: 100% !important;
-               height: auto !important;
-          }
-          </style>';
-}
-add_action('admin_head', 'fix_svg');
+// function fix_svg() {
+//     echo '<style type="text/css">
+//           .attachment-266x266, .thumbnail img {
+//                width: 100% !important;
+//                height: auto !important;
+//           }
+//           </style>';
+// }
+// add_action('admin_head', 'fix_svg');
 
 // Remove <p> and <br/> from Contact Form 7
 add_filter('wpcf7_autop_or_not', '__return_false');

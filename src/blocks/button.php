@@ -4,7 +4,7 @@ $url = ($attributes['linkObject']['url']) ?? '';
 $buttonStyle = ($attributes['buttonStyle']) ?? "btn-primary";
 $anchor = ($attributes['anchor']) ?? '';
 
-$classes = array('btn', 'btn-lg');
+$classes = array('btn');
 if ($buttonStyle) {
     array_push($classes, ($buttonStyle));
 };

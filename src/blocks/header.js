@@ -1,9 +1,10 @@
-import { registerBlockType } from "@wordpress/blocks";
-import { THEME_PATH } from "../../inc/theme";
+import { registerBlockType } from '@wordpress/blocks';
+import { InnerBlocks } from '@wordpress/block-editor';
+import { THEME_PATH } from '../../inc/theme';
 
-registerBlockType("stepr/header", {
-    title: "Header",
-    category: "custom-blocks",
+registerBlockType('stepr/header', {
+    title: 'Header',
+    category: 'custom-blocks',
     supports: {
         align: true
     },
@@ -11,17 +12,18 @@ registerBlockType("stepr/header", {
         align: { type: 'string', default: 'full' }
     },
     edit: Edit,
-    save: () => null
+    save: () => <InnerBlocks.Content />
 });
 
 function Edit() {
     return (
         <>
-            <header className="site-header">
-                <div className="container">
-                    <img src={ `${THEME_PATH}/stepr-logo-v2.svg` } className="logo"></img>
+            <header className='site-header'>
+                <div className='container'>
+                    <img src={`${THEME_PATH}/stepr-logo-color-v3.svg`} className='logo'></img>
+                    <div className='btn btn-primary'>Get started</div>
                 </div>
             </header>
         </>
     );
-};
+}

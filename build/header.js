@@ -30,6 +30,16 @@ const buttonStyles = [{
 
 /***/ }),
 
+/***/ "@wordpress/block-editor":
+/*!*************************************!*\
+  !*** external ["wp","blockEditor"] ***!
+  \*************************************/
+/***/ (function(module) {
+
+module.exports = window["wp"]["blockEditor"];
+
+/***/ }),
+
 /***/ "@wordpress/blocks":
 /*!********************************!*\
   !*** external ["wp","blocks"] ***!
@@ -129,13 +139,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _inc_theme__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../inc/theme */ "./inc/theme.js");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _inc_theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../inc/theme */ "./inc/theme.js");
 
 
 
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)("stepr/header", {
-  title: "Header",
-  category: "custom-blocks",
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)('stepr/header', {
+  title: 'Header',
+  category: 'custom-blocks',
   supports: {
     align: true
   },
@@ -146,7 +159,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   edit: Edit,
-  save: () => null
+  save: () => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks.Content, null)
 });
 function Edit() {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("header", {
@@ -154,11 +167,12 @@ function Edit() {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    src: `${_inc_theme__WEBPACK_IMPORTED_MODULE_2__.THEME_PATH}/stepr-logo-v2.svg`,
+    src: `${_inc_theme__WEBPACK_IMPORTED_MODULE_3__.THEME_PATH}/stepr-logo-color-v3.svg`,
     className: "logo"
-  }))));
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "btn btn-primary"
+  }, "Get started"))));
 }
-;
 }();
 /******/ })()
 ;

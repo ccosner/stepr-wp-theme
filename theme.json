@@ -21,8 +21,8 @@
         },
         "custom": {},
         "layout": {
-            "contentSize": "800px",
-            "wideSize": "1000px"
+            "contentSize": "1920px",
+            "wideSize": "2560px"
         },
         "spacing": {
             "margin": false,

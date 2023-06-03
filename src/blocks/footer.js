@@ -1,9 +1,9 @@
-import { registerBlockType } from "@wordpress/blocks";
-import { THEME_PATH } from "../../inc/theme";
+import { registerBlockType } from '@wordpress/blocks';
+import { THEME_PATH } from '../../inc/theme';
 
-registerBlockType("stepr/footer", {
-    title: "Footer",
-    category: "custom-blocks",
+registerBlockType('stepr/footer', {
+    title: 'Footer',
+    category: 'custom-blocks',
     supports: {
         align: true
     },
@@ -17,11 +17,11 @@ registerBlockType("stepr/footer", {
 function Edit() {
     return (
         <>
-            <footer className="site-footer">
-                <div className="container">
-                    <img src={ `${THEME_PATH}/stepr-logo-v2-white.svg` } className="logo"></img>
+            <footer className='site-footer'>
+                <div className='container'>
+                    <img src={`${THEME_PATH}/stepr-logo-white-v3.svg`} className='logo'></img>
                 </div>
             </footer>
         </>
     );
-};
+}
