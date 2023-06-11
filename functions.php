@@ -13,6 +13,7 @@ add_action('wp_enqueue_scripts', 'stepr_styles_and_scripts');
 function stepr_features() {
     add_image_size('hero', 2560, 1280);
     add_image_size('spotlight', 2560, 1080);
+    add_theme_support('title-tag');
     add_theme_support('editor-styles');
     add_editor_style(array('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Inter:wght@100;300;400;700&display=swap', 'style.css'));
     register_nav_menus(array(
